@@ -5,9 +5,11 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     // Config param
-    [SerializeField] int amountToBreak = 3;
     [SerializeField] AudioClip breakSound;
+    [SerializeField] GameObject blockSparkleVFX;
     [SerializeField] int pointValue = 10;
+    [SerializeField] int amountToBreak = 3;
+    [SerializeField] float destroyAfterDelay = 2f;
 
     //Cached component reference
     int countCollisions = 0;
@@ -30,10 +32,22 @@ public class Block : MonoBehaviour
         countCollisions++;
         if (countCollisions == amountToBreak)
         {
+            TriggerAllFX();
             FindObjectOfType<GameSession>().IncreaseScore(pointValue);
             level.CountDestroyedBlocks();
-            AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
             Destroy(gameObject);
         }
+    }
+
+    private void TriggerAllFX()
+    {
+        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
+        TriggerSparklesVFX();
+    }
+
+    private void TriggerSparklesVFX()
+    {
+        var sparkle = Instantiate(blockSparkleVFX, transform.position, transform.rotation);
+        Destroy(sparkle, destroyAfterDelay);
     }
 }

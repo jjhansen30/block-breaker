@@ -147,6 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountToBreak: 1
   breakSound: {fileID: 8300000, guid: 7d8295bc7918be54ca5dc53a6f455e1b, type: 3}
+  pointValue: 10
+  blockSparkleVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
+  destroyBlockDelay: 2
 --- !u!82 &2041188981
 AudioSource:
   m_ObjectHideFlags: 0

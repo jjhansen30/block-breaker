@@ -462,6 +462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1179831970986738274, guid: fc3924bd0f1f0dc41bd3bbd7975693b3, type: 3}
+      propertyPath: destroyBlockDelay
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1179831970986738277, guid: fc3924bd0f1f0dc41bd3bbd7975693b3, type: 3}
       propertyPath: m_Name
       value: Block

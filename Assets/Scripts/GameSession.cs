@@ -47,7 +47,6 @@ public class GameSession : MonoBehaviour
     {
         //Singleton Pattern
         int gameStateCount = FindObjectsOfType<GameSession>().Length;
-        Debug.Log("gameStateCount is " + gameStateCount);
         if (gameStateCount > 1)
         {
             gameObject.SetActive(false); //Ensures Destroy method is called on awake
