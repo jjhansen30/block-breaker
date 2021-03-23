@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 0
+  scoreText: {fileID: 0}
+  currentScore: 0
