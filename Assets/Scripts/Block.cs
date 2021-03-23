@@ -30,7 +30,7 @@ public class Block : MonoBehaviour
         countCollisions++;
         if (countCollisions == amountToBreak)
         {
-            FindObjectOfType<GameState>().IncreaseScore(pointValue);
+            FindObjectOfType<GameSession>().IncreaseScore(pointValue);
             level.CountDestroyedBlocks();
             AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
             Destroy(gameObject);
