@@ -54,6 +54,7 @@ public class GameState : MonoBehaviour
         Debug.Log("gameStateCount is " + gameStateCount);
         if (gameStateCount > 1)
         {
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else
