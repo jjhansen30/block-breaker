@@ -8,8 +8,9 @@ public class GameSession : MonoBehaviour
     //Config Params
     [Range(0, 10f)] [SerializeField] float gameSpeed;
     [SerializeField] Text scoreText;
+    [SerializeField] bool autoPlay = false;
 
-    //Cached component references
+    //State
     [SerializeField] int currentScore; //serialized for debuging purposes only
 
     private void Awake()
@@ -37,6 +38,16 @@ public class GameSession : MonoBehaviour
         UpdateScoreText();
     }
 
+    public void ResetGameScore()
+    {
+        Destroy(gameObject);
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return autoPlay;
+    }
+
     //Private Methods
     private void UpdateScoreText()
     {
@@ -56,10 +67,5 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-    }
-
-    public void ResetGameScore()
-    {
-        Destroy(gameObject);
     }
 }

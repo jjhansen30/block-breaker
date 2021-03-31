@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -9,20 +7,23 @@ public class Ball : MonoBehaviour
     [SerializeField] Paddle paddle1;
     [SerializeField] Vector2 ballVelocity;
     [SerializeField] AudioClip[] ballSounds;
+    [SerializeField] float randomFactor = 0.2f;
 
     // state
-    Vector2 paddleToBallVector;
     bool hasStarted;
 
     //cached component references
     AudioSource myAdudioSource;
+    Vector2 paddleToBallVector;
+    Rigidbody2D myRidgedBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        myAdudioSource = GetComponent<AudioSource>();
         hasStarted = false;
         paddleToBallVector = transform.position - paddle1.transform.position;
+        myAdudioSource = GetComponent<AudioSource>();
+        myRidgedBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -46,16 +47,24 @@ public class Ball : MonoBehaviour
 
     private void LockBallToPaddle()
     {
-        Vector2 paddlePos = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
+        Vector2 paddlePos = new Vector2(
+            paddle1.transform.position.x,
+            paddle1.transform.position.y);
+
         transform.position = paddlePos + paddleToBallVector;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector2 velocityAdjust = new Vector2(
+            Random.Range(0f, randomFactor),
+            Random.Range(0f, randomFactor));
+
         if (hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
             myAdudioSource.PlayOneShot(clip);
+            myRidgedBody.velocity += velocityAdjust;
         }
     }
 }

@@ -116,7 +116,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -136,12 +136,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddle1: {fileID: 0}
-  ballVelocity: {x: 0.5, y: 15}
+  ballVelocity: {x: 0.1, y: 15}
   ballSounds:
   - {fileID: 8300000, guid: e941e2255b9136b409c16fafa0ca44e1, type: 3}
   - {fileID: 8300000, guid: ccd345be6e6d1ec4286254a532a76978, type: 3}
   - {fileID: 8300000, guid: a261fd7ba02a88d498861fd209311db3, type: 3}
   - {fileID: 8300000, guid: f6c4928ea23725b47beb97eada2a7ddb, type: 3}
+  randomFactor: 0.5
 --- !u!82 &9055481084453792481
 AudioSource:
   m_ObjectHideFlags: 0

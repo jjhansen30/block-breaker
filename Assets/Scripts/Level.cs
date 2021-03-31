@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] int breakableBlocks; //serialized for debug puproses only
+    [SerializeField] int blockCount; //serialized for debug puproses only
     SceneLoader sceneLoader;
 
     // Start is called before the first frame update
@@ -13,15 +13,15 @@ public class Level : MonoBehaviour
         sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
-    public void CountBreakableBlocks()
+    public void CountBlocks()
     {
-        breakableBlocks++;
+        blockCount++;
     }
 
     public void CountDestroyedBlocks()
     {
-        breakableBlocks--;
-        if (breakableBlocks == 0)
+        blockCount--;
+        if (blockCount == 0)
         {
             sceneLoader.LoadNextScene();
         }
